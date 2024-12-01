@@ -315,7 +315,7 @@ class Camera(Node, CameraInterface):
 
             all_points[i] = self.position
             # Flip the Z axis since we want to display the orientation with Z forward
-            all_oris[i] = self.rotation @ np.array([[1, 0, 0], [0, 1, 0], [0, 0, -1]])
+            all_oris[i] = self.rotation #@ np.array([[1, 0, 0], [0, 1, 0], [0, 0, -1]])
 
         path_spheres = RigidBodies(all_points, all_oris, radius=0.01, length=0.1, color=(0.92, 0.68, 0.2, 1.0))
 
@@ -553,7 +553,7 @@ class OpenCVCamera(Camera):
     def current_rotation(self):
         Rt = self.current_Rt
         rot = np.copy(Rt[:, 0:3].T)
-        rot[:, 1:] *= -1.0
+        # rot[:, 1:] *= -1.0
         return rot
 
     @property
@@ -870,6 +870,8 @@ class ViewerCamera(CameraInterface):
         self._position = np.array([0.0, 2.5, 0.0]) if C.z_up else np.array([0.0, 0.0, 2.5])
         self._target = np.array([0.0, 0.0, 0.0])
         self._up = np.array([0.0, 0.0, 1.0]) if C.z_up else np.array([0.0, 1.0, 0.0])
+        if C.up is not None:
+            self._up = np.array(C.up)
 
         self.ZOOM_FACTOR = 4
         self.ROT_FACTOR = 0.0025

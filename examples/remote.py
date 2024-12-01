@@ -8,6 +8,8 @@ from aitviewer.remote.viewer import RemoteViewer
 # Load and generate 200 frames of vertex data.
 N = 200
 sphere = trimesh.load("resources/planet/planet.obj")
+# sphere = trimesh.load("aitviewer/examples/resources/planet/planet.obj")
+
 vertices_begin = sphere.vertices
 vertices_end = sphere.vertices.copy()
 for i in range(3):

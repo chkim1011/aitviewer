@@ -43,7 +43,7 @@ if __name__ == "__main__":
         vertices = vertices - cur_root_trans + t[:, None, :]
         joints = joints - cur_root_trans + t[:, None, :]
         return vertices, joints
-
+    
     # Instantiate an SMPL sequence using the parameters from the data file.
     # We set z_up=True because GLAMR data is using z_up coordinates.
     smpl_layer = SMPLLayer(model_type="smpl", gender="neutral", device=C.device)
@@ -70,7 +70,6 @@ if __name__ == "__main__":
     for i in range(Rt.shape[0]):
         Rt[i] = Rt[i] @ z_up_from_y_up
     K = person["cam_K"]
-
     # Create a sequence of cameras from camera extrinsics and intrinsics.
     cols, rows = 3840, 2160
     camera = OpenCVCamera(K, Rt[:, :3, :], cols, rows, viewer=viewer)

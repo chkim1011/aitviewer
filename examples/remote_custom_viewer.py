@@ -35,7 +35,8 @@ if not args.server:
     from aitviewer.remote.renderables.meshes import RemoteMeshes
     from aitviewer.remote.viewer import RemoteViewer
 
-    cube = trimesh.load("resources/cube.obj")
+    # cube = trimesh.load("resources/cube.obj")
+    cube = trimesh.load("aitviewer/examples/resources/cube.obj")
 
     # Create a viewer in a separate process, passing a path to the script
     # and a command line argument.

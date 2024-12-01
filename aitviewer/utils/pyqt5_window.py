@@ -30,7 +30,6 @@ class PyQt5Window(Window):
         # We need an application object, but we are bypassing the library's
         # internal event loop to avoid unnecessary work
         self._app = QtWidgets.QApplication([])
-
         # Create the OpenGL widget
         self._widget = QtOpenGL.QGLWidget(gl)
         self.title = self._title
@@ -56,12 +55,17 @@ class PyQt5Window(Window):
 
         # Center the window on the screen if in window mode
         if not self.fullscreen:
+            screen_geometry = QtWidgets.QDesktopWidget().screenGeometry()
             center_window_position = (
-                # HACK: Here we changed division to integer division,
-                # because move requires its arguments to be integers.
-                self.position[0] - self.width // 2,
-                self.position[1] - self.height // 2,
+                screen_geometry.x() + screen_geometry.width() // 2 - self.width // 2,
+                screen_geometry.y() + screen_geometry.height() // 2 - self.height // 2,
             )
+            # center_window_position = (
+            #     # HACK: Here we changed division to integer division,
+            #     # because move requires its arguments to be integers.
+            #     self.position[0] - self.width // 2,
+            #     self.position[1] - self.height // 2,
+            # )
             self._widget.move(*center_window_position)
 
         # Needs to be set before show()

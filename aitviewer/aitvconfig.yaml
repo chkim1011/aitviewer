@@ -16,6 +16,7 @@ i_precision: 64
 # Camera.
 znear: 0.01
 zfar: 1000.0
+up: [0.0, 1.0, 0.0]
 camera_zoom_speed: 0.05
 
 # Viewer.
@@ -25,7 +26,7 @@ fullscreen: False
 resizable: True
 vsync: True
 export_dir: "../export"
-playback_fps: 60
+playback_fps: 30
 scene_fps: 60
 run_animations: False
 dark_mode: False

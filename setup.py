@@ -9,7 +9,7 @@ INSTALL_PYQT6 = os.getenv("AITVIEWER_INSTALL_PYQT6", 0)
 
 requirements = [
     "torch>=1.6.0",
-    "numpy>=1.18,<2",
+    "numpy>=1.18,<=1.23.1", #numpy needs to be under 1.23.1
     "opencv-contrib-python-headless>=4.5.1.48",
     "smplx",
     "moderngl-window>=2.4.3",
@@ -26,6 +26,7 @@ requirements = [
     "Pillow",
     "websockets",
     "usd-core>=23.5",
+    "chumpy",
 ]
 
 # Choose PyQt version depending on environment variable.

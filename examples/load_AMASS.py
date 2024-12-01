@@ -19,7 +19,8 @@ if __name__ == "__main__":
         name="AMASS Running",
         show_joint_angles=True,
     )
-
+    
+    
     # Instead of displaying the mesh, we can also just display point clouds.
     #
     # Point clouds do not actually draw triangulated spheres (like the `Spheres` class does). They
