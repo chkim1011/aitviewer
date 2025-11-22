@@ -8,11 +8,11 @@ from aitviewer import __version__
 INSTALL_PYQT6 = os.getenv("AITVIEWER_INSTALL_PYQT6", 0)
 
 requirements = [
-    "torch>=1.6.0",
+    "torch>=1.6.0, <=2.0.1",
     "numpy>=1.18,<=1.23.1", #numpy needs to be under 1.23.1
     "opencv-contrib-python-headless>=4.5.1.48",
     "smplx",
-    "moderngl-window>=2.4.3",
+    "moderngl-window>=2.4.3, <3.0.0",
     "moderngl>=5.8.2,<6",
     "imgui==2.0.0",
     "tqdm>=4.60.0",

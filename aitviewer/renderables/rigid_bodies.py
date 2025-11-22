@@ -62,8 +62,8 @@ class RigidBodies(Node):
                 color=tuple(color),
                 is_selectable=False,
             )
-            self._add_node(axs, show_in_hierarchy=False)
-            self.coords.append(axs)
+            # self._add_node(axs, show_in_hierarchy=False)
+            # self.coords.append(axs)
 
     @Node.color.setter
     def color(self, color):
